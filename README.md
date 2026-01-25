@@ -1,16 +1,20 @@
-## Hi there 👋
+# Muhammad Huraira — SOC Analyst (Entry-Level)
 
-<!--
-**mhuraira75/mhuraira75** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I am building hands-on SOC skills through a structured home lab focused on SIEM deployment, secure access, log analysis, and incident investigation.
 
-Here are some ideas to get you started:
+## Current Focus
+- Wazuh SIEM (Manager, Indexer, Dashboard)
+- Ubuntu Server (CLI-based administration via SSH)
+- Windows endpoint logging and monitoring
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Projects
+- **SOC Home Lab – Wazuh SIEM**  
+  Documentation-first SOC lab covering SIEM deployment, access control, and credential hygiene.
+
+## Skills
+- SIEM: Wazuh (deployment, basic investigation workflow)
+- Linux: SSH, service management, server hardening basics
+- Windows: Event logs (endpoint onboarding in progress)
+
+## Contact
+- LinkedIn: (add your LinkedIn URL)
