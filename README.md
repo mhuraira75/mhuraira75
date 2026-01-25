@@ -17,4 +17,4 @@ I am building hands-on SOC skills through a structured home lab focused on SIEM 
 - Windows: Event logs (endpoint onboarding in progress)
 
 ## Contact
-- LinkedIn: (add your LinkedIn URL)
+- LinkedIn: www.linkedin.com/in/muhammad-huraira-634a05199
