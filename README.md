@@ -1,56 +1,114 @@
-# Muhammad Huraira — SOC Analyst (Entry-Level)
+# Muhammad Huraira — SOC Analyst (Detection Engineering & Investigation Focus)
 
-I am building hands-on Security Operations Center (SOC) skills through a structured, documentation-first home lab that mirrors real-world SOC workflows. My focus is on endpoint telemetry, SIEM operations, alert validation, and investigation readiness rather than tool installation alone.
+I build hands-on Security Operations Center (SOC) capability through a structured, documentation-first home lab designed to simulate real-world SOC workflows.
+
+My focus is not just tool deployment, but operating like a SOC analyst — building behaviour-based detections, validating telemetry, performing investigations, and producing portfolio-level security documentation.
 
 ---
 
 ## Current Focus
-- SOC operations and analyst workflows  
-- Endpoint telemetry enrichment and validation  
-- Detection visibility and alert investigation  
+
+- Behaviour-based detection engineering
+- SOC analyst investigation workflows
+- Endpoint telemetry analysis (Sysmon + SIEM correlation)
+- Alert triage and evidence-driven incident classification
+- Detection tuning and false-positive reduction
 
 ---
 
-## Projects
+## Primary Project
 
-### SOC Home Lab – Wazuh SIEM
-A SOC-style home lab designed to simulate real-world monitoring and investigation workflows.
+### SOC Home Lab — Wazuh SIEM (Detection Engineering & Investigation Workflow)
 
-**Key work completed:**
-- Deployed and validated a Wazuh SIEM on Ubuntu Server (CLI-only)
-- Implemented secure SSH-based administration and access separation
-- Onboarded a Windows 11 endpoint with Wazuh agent
-- Configured and tested File Integrity Monitoring (FIM)
-- Deployed Sysmon to enrich Windows endpoint telemetry
-- Verified Sysmon ingestion at endpoint, SIEM backend, and dashboard levels
-- Created analyst-friendly dashboard views for high-value telemetry
-- Maintained detailed documentation and validation evidence in GitHub
+A production-style SOC environment designed to replicate real monitoring and investigation processes.
+
+---
+
+### Architecture
+
+- Wazuh SIEM deployed on Ubuntu Server (Manager / Indexer / Dashboard)
+- Windows 11 endpoint onboarded with Wazuh agent
+- Sysmon deployed for enriched endpoint telemetry
+- Secure CLI-based administration and operational validation
+
+---
+
+### Detection Engineering Work
+
+- Behaviour-based PowerShell detections
+- Encoded command detection
+- Persistence and privilege escalation monitoring
+- Credential access detection
+- Discovery and defense evasion behaviour analysis
+- Lateral movement visibility
+- LOLBins detection (certutil, PowerShell chaining)
+- Parent-child process analysis
+- Behaviour chaining and multi-stage attack modelling
+
+---
+
+### SOC Investigation Workflow (Portfolio Work)
+
+Performed full end-to-end SOC investigation using real telemetry:
+
+- Alert queue triage
+- Timeline reconstruction
+- Process lineage analysis
+- Behaviour chain investigation
+- Artifact validation (hashing, content analysis)
+- MITRE ATT&CK mapping
+- Risk classification (benign vs suspicious vs malicious)
+- Detection improvement and tuning recommendations
+
+All investigation reports and supporting documentation are maintained in this repository.
 
 ---
 
 ## Skills
 
-**SIEM & SOC**
-- Wazuh SIEM (agent onboarding, log ingestion, alert validation)
-- SOC-style investigation workflow
-- Dashboard and backend log analysis
+### SIEM & SOC Operations
 
-**Endpoint Monitoring**
+- Wazuh SIEM deployment and administration
+- Alert validation and backend log analysis
+- SOC investigation workflow simulation
+- Detection engineering aligned with MITRE ATT&CK
+
+### Endpoint Monitoring
+
 - Windows Security Event Logs
-- Sysmon (process creation and telemetry enrichment)
+- Sysmon telemetry analysis
+- Process execution and behaviour analysis
 - File Integrity Monitoring (FIM)
 
-**Linux**
-- Ubuntu Server (CLI-only)
-- SSH-based administration
-- Service management and log inspection
+### Linux & Infrastructure
 
-**Operational Practices**
-- Documentation-first workflow
-- Backend validation of SIEM data (JSON parsing, filtering)
-- Analyst-centric dashboard optimization
+- Ubuntu Server (CLI-focused administration)
+- SSH-based secure management
+- Service monitoring and log inspection
+
+### Operational Practices
+
+- Documentation-first security workflow
+- Evidence-driven investigation methodology
+- Backend telemetry validation (JSON parsing, filtering)
+- Analyst-focused reporting and portfolio building
+
+---
+
+## Current Direction
+
+I am now expanding into **hybrid detection engineering** by integrating endpoint telemetry with network-level visibility.
+
+Next phase focus:
+
+- Network SOC monitoring
+- Endpoint + network correlation detections
+- Network telemetry analysis
+- Threat hunting across multiple data sources
 
 ---
 
 ## Contact
-- **LinkedIn:** https://www.linkedin.com/in/muhammad-huraira-634a05199
+
+LinkedIn:  
+https://www.linkedin.com/in/muhammad-huraira-634a05199
