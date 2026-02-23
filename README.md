@@ -38,7 +38,7 @@ A production-style SOC environment replicating real monitoring, investigation, p
 
 # Detection Engineering Capability
 
-## Endpoint Detection Engineering
+## Endpoint Detection Engineering (Phase 1)
 
 - Behaviour-based PowerShell detections  
 - Encoded command detection  
@@ -52,7 +52,7 @@ A production-style SOC environment replicating real monitoring, investigation, p
 
 ---
 
-## Hybrid Detection Engineering (Endpoint + Network IDS)
+## Hybrid Detection Engineering (Endpoint + Network IDS) (Phase 2)
 
 Structured correlation between endpoint behaviour and network telemetry:
 
@@ -65,7 +65,7 @@ Structured correlation between endpoint behaviour and network telemetry:
 
 ---
 
-## Firewall Detection Engineering (Perimeter Monitoring)
+## Firewall Detection Engineering (Perimeter Monitoring) (Phase 3)
 
 Phase 3 expanded the lab into perimeter-aware SOC monitoring.
 
