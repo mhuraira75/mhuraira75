@@ -1,4 +1,4 @@
-# Muhammad Huraira — SOC Analyst (Hybrid Detection Engineering, Perimeter Monitoring & Cloud Identity Detection)
+# Muhammad Huraira — SOC Analyst (Hybrid Detection Engineering, Perimeter Monitoring, Cloud Identity Detection & Microsoft SOC Engineering)
 
 I build hands-on Security Operations Center (SOC) capability through a structured, documentation-first home lab designed to simulate real-world SOC workflows.
 
@@ -9,9 +9,10 @@ My focus is not just deploying tools — but operating like a SOC analyst and de
 - Building SOC-grade escalation logic  
 - Performing structured investigations  
 - Engineering hybrid multi-layer correlation  
+- Translating detection engineering into Microsoft SOC environments  
 - Producing portfolio-level security documentation  
 
-This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, now expanded into **cloud identity detection engineering**.
+This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, expanded into **cloud identity detection engineering**, and now **Microsoft Sentinel / Defender detection engineering using KQL**.
 
 ---
 
@@ -31,6 +32,7 @@ A production-style SOC environment replicating real monitoring, investigation, p
 - **Suricata IDS** integrated for DNS and TLS network visibility  
 - **UFW Firewall telemetry** integrated for perimeter monitoring  
 - **Cloud identity telemetry ingestion (GitHub activity monitoring)**  
+- **Microsoft Sentinel workspace for Microsoft-native detection engineering**  
 - Hybrid endpoint + network + firewall + cloud correlation  
 - CLI-based operational validation and backend JSON log inspection  
 
@@ -113,6 +115,77 @@ Focus areas:
 
 ---
 
+## Microsoft SOC Detection Engineering (Sentinel + Defender + KQL — Phase 5)
+
+Phase 5 translates the detection engineering capability developed in the home lab into **Microsoft-native SOC environments**, which are widely used in enterprise SOC teams.
+
+The objective of this phase was to map existing SOC skills into the Microsoft security ecosystem including:
+
+- **Microsoft Sentinel**
+- **Microsoft Defender investigation workflows**
+- **KQL detection engineering**
+- **Cloud telemetry analysis**
+- **Cross-source correlation**
+
+Implemented capabilities:
+
+### Sentinel Architecture Deployment
+
+- Log Analytics Workspace deployment
+- Microsoft Sentinel enablement
+- AzureActivity telemetry ingestion
+- Verification of cloud log pipeline
+- Sentinel analytics rule creation
+- Alert generation and validation
+
+### KQL Detection Engineering
+
+Developed threat hunting and detection queries using:
+
+- `where`
+- `summarize`
+- `count`
+- `bin`
+- `join`
+
+Detection logic built for:
+
+- Rare Azure management operations
+- Control-plane anomaly monitoring
+- Behaviour burst detections
+- Suspicious SIEM hunting activity
+- Multi-signal correlation detections
+
+### Cross-Source Correlation
+
+Implemented correlation between multiple Microsoft telemetry sources:
+
+- **LAQueryLogs** — suspicious SIEM hunting activity
+- **AzureActivity** — management plane operations
+
+Correlation logic used:
+
+- Time-window alignment
+- Query burst detection
+- Cross-table joins
+
+This demonstrates **multi-signal SOC detection modelling**, similar to behaviour chaining performed in the Wazuh environment.
+
+### Defender Investigation Workflow
+
+Validated the Microsoft SOC investigation lifecycle:
+
+1. Telemetry ingestion  
+2. KQL hunting query creation  
+3. Detection rule deployment  
+4. Alert generation  
+5. Incident creation  
+6. Investigation within Microsoft Defender portal  
+
+This mirrors real enterprise SOC processes used by teams operating the Microsoft security stack.
+
+---
+
 # SOC-Grade Prioritization Model (Implemented)
 
 A structured three-tier escalation workflow was engineered:
@@ -159,6 +232,8 @@ All investigation reports and detection documentation are included in this repos
 ## SIEM & SOC Operations
 
 - Wazuh SIEM deployment and administration  
+- Microsoft Sentinel architecture and analytics rules  
+- KQL threat hunting and detection engineering  
 - Hybrid multi-source correlation (Endpoint + IDS + Firewall + Cloud)  
 - Alert prioritization and escalation modelling  
 - Backend JSON log validation and analysis  
@@ -187,6 +262,16 @@ All investigation reports and detection documentation are included in this repos
 - JSON log pipeline engineering  
 - Identity-based detection modelling  
 - Cloud event baseline development  
+- AzureActivity telemetry monitoring  
+
+## Microsoft Security Stack
+
+- Microsoft Sentinel deployment and architecture understanding  
+- KQL query development and threat hunting  
+- Time-window behaviour detections using `bin()`  
+- Multi-source correlation using `join`  
+- Azure control-plane activity monitoring  
+- Microsoft Defender incident investigation workflow  
 
 ## Linux & Infrastructure
 
@@ -215,24 +300,27 @@ All investigation reports and detection documentation are included in this repos
 - Hybrid Multi-Layer Correlation (Endpoint + IDS + Firewall)  
 - SOC-Grade Escalation Modelling  
 - Initial Cloud Identity Detection Engineering Integration  
+- Microsoft Sentinel Detection Engineering (KQL + Defender Workflow)
 
 ---
 
 # Future Direction
 
-Continue expanding cloud detection engineering including:
+Continue expanding cloud and Microsoft SOC detection engineering including:
 
 - Authentication anomaly detection  
 - Privilege escalation monitoring  
 - Password spray modelling  
 - Impossible travel detection logic  
 - Token/session anomaly detection  
-- Full hybrid correlation:
+- Advanced KQL correlation detections  
+- Hybrid correlation across:
 
 Endpoint  
 Network  
 Perimeter  
 Cloud Identity  
+Microsoft Sentinel  
 
 ---
 
