@@ -10,9 +10,10 @@ My focus is not just deploying tools — but operating like a SOC analyst and de
 - Performing structured investigations  
 - Engineering hybrid multi-layer correlation  
 - Translating detection engineering into Microsoft SOC environments  
+- Simulating real SOC analyst operational workflows  
 - Producing portfolio-level security documentation  
 
-This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, expanded into **cloud identity detection engineering**, and now **Microsoft Sentinel / Defender detection engineering using KQL**.
+This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, expanded into **cloud identity detection engineering**, **Microsoft Sentinel / Defender detection engineering**, and **SOC operational investigation workflows**.
 
 ---
 
@@ -186,6 +187,62 @@ This mirrors real enterprise SOC processes used by teams operating the Microsoft
 
 ---
 
+# SOC Operational Skills Mini-Labs (Phase 6)
+
+Phase 6 expanded the lab from **detection engineering** into **SOC analyst operational workflows**, focusing on practical investigation tasks performed daily in SOC environments.
+
+## Phishing Email Investigation
+
+Simulated a phishing investigation workflow including:
+
+- Email header analysis
+- IOC extraction from suspicious emails
+- URL and domain reputation validation
+- Malware and attachment reputation checks
+- Threat intelligence enrichment using external intelligence sources
+
+This exercise replicated the workflow used by SOC analysts when investigating **phishing alerts and suspicious emails**.
+
+---
+
+## SOAR Automation Exposure
+
+Explored **Security Orchestration, Automation, and Response (SOAR)** concepts using the Shuffle platform.
+
+Activities included:
+
+- Designing alert enrichment workflows
+- Understanding SOC automation pipelines
+- Mapping alert triage workflows into automated playbooks
+- Evaluating how SOAR reduces investigation time and analyst workload
+
+This phase focused on **automation concepts rather than full enterprise SOAR deployment**.
+
+---
+
+## SOC Incident Investigation Workflow Simulation
+
+Simulated a real SOC incident lifecycle using Wazuh SIEM telemetry.
+
+Investigation scenario included:
+
+- Repeated credential execution attempts using the Windows RunAs utility
+- Alert triage and timeline reconstruction
+- Process lineage and command-line analysis
+- Event pivoting and correlation across logs
+- Risk classification and escalation decision
+
+This mini-lab simulated the full SOC investigation lifecycle:
+
+Alert  
+→ Triage  
+→ Investigation  
+→ Evidence collection  
+→ Escalation decision  
+→ Incident documentation
+
+---
+
 # SOC-Grade Prioritization Model (Implemented)
 
 A structured three-tier escalation workflow was engineered:
@@ -255,6 +312,13 @@ All investigation reports and detection documentation are included in this repos
 - Scan detection and port anomaly monitoring  
 - Hybrid perimeter correlation  
 
+## Email Security Investigation
+
+- Phishing email analysis  
+- Email header investigation  
+- IOC extraction and enrichment  
+- Threat intelligence validation  
+
 ## Cloud Monitoring
 
 - Cloud identity telemetry ingestion  
@@ -300,27 +364,28 @@ All investigation reports and detection documentation are included in this repos
 - Hybrid Multi-Layer Correlation (Endpoint + IDS + Firewall)  
 - SOC-Grade Escalation Modelling  
 - Initial Cloud Identity Detection Engineering Integration  
-- Microsoft Sentinel Detection Engineering (KQL + Defender Workflow)
+- Microsoft Sentinel Detection Engineering (KQL + Defender Workflow)  
+- SOC Operational Skills Mini-Labs (Email Investigation, SOAR Exposure, Incident Workflow)
 
 ---
 
 # Future Direction
 
-Continue expanding cloud and Microsoft SOC detection engineering including:
+Next expansion phase focuses on strengthening cross-platform investigation and vulnerability awareness.
 
-- Authentication anomaly detection  
-- Privilege escalation monitoring  
-- Password spray modelling  
-- Impossible travel detection logic  
-- Token/session anomaly detection  
-- Advanced KQL correlation detections  
-- Hybrid correlation across:
+## Phase 7 — Linux Investigation & Vulnerability Management
 
-Endpoint  
-Network  
-Perimeter  
-Cloud Identity  
-Microsoft Sentinel  
+Planned capabilities include:
+
+- Linux authentication log investigation  
+- SSH brute force detection and analysis  
+- sudo privilege monitoring and suspicious command analysis  
+- Cross-platform investigation using Windows + Linux telemetry  
+- Vulnerability scanning using Nessus Essentials  
+- CVE and CVSS severity interpretation  
+- Vulnerability exposure analysis supporting SOC investigations  
+
+This phase will expand the lab from detection engineering into **broader security operations capabilities including vulnerability awareness and Linux security monitoring**.
 
 ---
 
