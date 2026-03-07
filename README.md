@@ -1,4 +1,4 @@
-# Muhammad Huraira — SOC Analyst (Hybrid Detection Engineering, Perimeter Monitoring, Cloud Identity Detection & Microsoft SOC Engineering)
+# Muhammad Huraira — SOC Analyst (Hybrid Detection Engineering, Perimeter Monitoring, Cloud Identity Detection, Microsoft SOC Engineering & Vulnerability Management)
 
 I build hands-on Security Operations Center (SOC) capability through a structured, documentation-first home lab designed to simulate real-world SOC workflows.
 
@@ -11,9 +11,10 @@ My focus is not just deploying tools — but operating like a SOC analyst and de
 - Engineering hybrid multi-layer correlation  
 - Translating detection engineering into Microsoft SOC environments  
 - Simulating real SOC analyst operational workflows  
+- Performing vulnerability assessments and security posture analysis  
 - Producing portfolio-level security documentation  
 
-This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, expanded into **cloud identity detection engineering**, **Microsoft Sentinel / Defender detection engineering**, and **SOC operational investigation workflows**.
+This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, expanded into **cloud identity detection engineering**, **Microsoft Sentinel / Defender detection engineering**, **SOC operational investigation workflows**, and **vulnerability management practices**.
 
 ---
 
@@ -34,6 +35,7 @@ A production-style SOC environment replicating real monitoring, investigation, p
 - **UFW Firewall telemetry** integrated for perimeter monitoring  
 - **Cloud identity telemetry ingestion (GitHub activity monitoring)**  
 - **Microsoft Sentinel workspace for Microsoft-native detection engineering**  
+- **Nessus vulnerability scanner integrated for security posture assessment**  
 - Hybrid endpoint + network + firewall + cloud correlation  
 - CLI-based operational validation and backend JSON log inspection  
 
@@ -118,30 +120,21 @@ Focus areas:
 
 ## Microsoft SOC Detection Engineering (Sentinel + Defender + KQL — Phase 5)
 
-Phase 5 translates the detection engineering capability developed in the home lab into **Microsoft-native SOC environments**, which are widely used in enterprise SOC teams.
+Phase 5 translated the detection engineering capability developed in the home lab into **Microsoft-native SOC environments**, which are widely used in enterprise SOC teams.
 
-The objective of this phase was to map existing SOC skills into the Microsoft security ecosystem including:
-
-- **Microsoft Sentinel**
-- **Microsoft Defender investigation workflows**
-- **KQL detection engineering**
-- **Cloud telemetry analysis**
-- **Cross-source correlation**
-
-Implemented capabilities:
+Capabilities implemented:
 
 ### Sentinel Architecture Deployment
 
 - Log Analytics Workspace deployment
 - Microsoft Sentinel enablement
 - AzureActivity telemetry ingestion
-- Verification of cloud log pipeline
 - Sentinel analytics rule creation
 - Alert generation and validation
 
 ### KQL Detection Engineering
 
-Developed threat hunting and detection queries using:
+Detection and hunting queries developed using:
 
 - `where`
 - `summarize`
@@ -159,80 +152,48 @@ Detection logic built for:
 
 ### Cross-Source Correlation
 
-Implemented correlation between multiple Microsoft telemetry sources:
+Correlation implemented between:
 
-- **LAQueryLogs** — suspicious SIEM hunting activity
-- **AzureActivity** — management plane operations
+- **LAQueryLogs**
+- **AzureActivity**
 
-Correlation logic used:
-
-- Time-window alignment
-- Query burst detection
-- Cross-table joins
-
-This demonstrates **multi-signal SOC detection modelling**, similar to behaviour chaining performed in the Wazuh environment.
+Using time-window alignment and cross-table joins to model enterprise SOC detections.
 
 ### Defender Investigation Workflow
 
-Validated the Microsoft SOC investigation lifecycle:
+Validated the Microsoft SOC incident lifecycle:
 
-1. Telemetry ingestion  
-2. KQL hunting query creation  
-3. Detection rule deployment  
-4. Alert generation  
-5. Incident creation  
-6. Investigation within Microsoft Defender portal  
-
-This mirrors real enterprise SOC processes used by teams operating the Microsoft security stack.
+Telemetry ingestion  
+→ Hunting query  
+→ Detection rule creation  
+→ Alert generation  
+→ Incident investigation
 
 ---
 
 # SOC Operational Skills Mini-Labs (Phase 6)
 
-Phase 6 expanded the lab from **detection engineering** into **SOC analyst operational workflows**, focusing on practical investigation tasks performed daily in SOC environments.
+Phase 6 expanded the lab from **detection engineering** into **SOC analyst operational workflows**.
 
 ## Phishing Email Investigation
 
-Simulated a phishing investigation workflow including:
-
 - Email header analysis
-- IOC extraction from suspicious emails
-- URL and domain reputation validation
-- Malware and attachment reputation checks
-- Threat intelligence enrichment using external intelligence sources
-
-This exercise replicated the workflow used by SOC analysts when investigating **phishing alerts and suspicious emails**.
-
----
+- IOC extraction
+- Domain and URL reputation checks
+- Attachment reputation analysis
+- Threat intelligence enrichment
 
 ## SOAR Automation Exposure
 
-Explored **Security Orchestration, Automation, and Response (SOAR)** concepts using the Shuffle platform.
+Using the Shuffle platform:
 
-Activities included:
+- Alert enrichment workflow design
+- SOC automation pipeline modelling
+- Investigation playbook mapping
 
-- Designing alert enrichment workflows
-- Understanding SOC automation pipelines
-- Mapping alert triage workflows into automated playbooks
-- Evaluating how SOAR reduces investigation time and analyst workload
+## SOC Incident Investigation Simulation
 
-This phase focused on **automation concepts rather than full enterprise SOAR deployment**.
-
----
-
-## SOC Incident Investigation Workflow Simulation
-
-Simulated a real SOC incident lifecycle using Wazuh SIEM telemetry.
-
-Investigation scenario included:
-
-- Repeated credential execution attempts using the Windows RunAs utility
-- Alert triage and timeline reconstruction
-- Process lineage and command-line analysis
-- Event pivoting and correlation across logs
-- Risk classification and escalation decision
-
-This mini-lab simulated the full SOC investigation lifecycle:
+Simulated a full SOC investigation lifecycle:
 
 Alert  
 → Triage  
@@ -241,29 +202,60 @@ Alert
 → Escalation decision  
 → Incident documentation
 
+Investigation included credential execution attempts and behaviour timeline reconstruction.
+
 ---
 
-# SOC-Grade Prioritization Model (Implemented)
+# Linux Investigation & Vulnerability Management (Phase 7)
 
-A structured three-tier escalation workflow was engineered:
+Phase 7 expanded the SOC lab into **Linux security monitoring and vulnerability management workflows**.
 
-## Low Confidence (Noise Reduction)
+## Linux Security Log Investigation
 
-- Microsoft/CDN/telemetry traffic automatically downgraded  
-- Prevents alert fatigue  
+Performed security investigations using Linux authentication logs.
 
-## Medium Confidence (Investigation Eligible)
+Activities included:
 
-- External TLS to non-allowlisted domains  
-- Marked as reviewable, not auto-escalated  
+- SSH authentication failure analysis  
+- Detection of repeated login attempts  
+- Investigation of successful login events following failed attempts  
+- Monitoring sudo privilege escalation activity  
+- User account creation monitoring  
 
-## High Confidence (SOC Escalation)
+Security events were analyzed from:
 
-- Endpoint behaviour anchor  
-- External TLS to non-allowlisted SNI  
-- Firewall repeated block behaviour within defined timeframe  
+```
+/var/log/auth.log
+```
 
-This mirrors real SOC prioritization and escalation processes.
+These activities simulated how SOC analysts investigate **Linux authentication anomalies and privilege escalation events**.
+
+---
+
+## Vulnerability Management with Nessus
+
+Deployed **Nessus Essentials** to simulate enterprise vulnerability assessment workflows.
+
+Implementation included:
+
+- Nessus scanner deployment on Ubuntu SIEM server
+- Vulnerability plugin initialization
+- Network vulnerability scanning against Windows endpoint
+- Analysis of scan results and vulnerability severity
+
+The vulnerability scan evaluated system exposure using:
+
+- Common Vulnerabilities and Exposures (CVE)
+- Common Vulnerability Scoring System (CVSS)
+
+### Key Findings
+
+Two medium-severity vulnerabilities were identified:
+
+- Untrusted SSL certificate configuration
+- Legacy TLS 1.0 protocol support
+
+This phase introduced **proactive vulnerability assessment capabilities** alongside detection engineering.
 
 ---
 
@@ -275,12 +267,10 @@ Performed full end-to-end SOC investigations using real telemetry:
 - Timeline reconstruction  
 - Process lineage analysis  
 - Behaviour chain investigation  
-- Artifact validation (hashing, content inspection)  
+- Artifact validation  
 - MITRE ATT&CK mapping  
-- Risk classification (benign vs suspicious vs malicious)  
-- Detection improvement and tuning recommendations  
-
-All investigation reports and detection documentation are included in this repository.
+- Risk classification  
+- Detection tuning recommendations  
 
 ---
 
@@ -291,9 +281,8 @@ All investigation reports and detection documentation are included in this repos
 - Wazuh SIEM deployment and administration  
 - Microsoft Sentinel architecture and analytics rules  
 - KQL threat hunting and detection engineering  
-- Hybrid multi-source correlation (Endpoint + IDS + Firewall + Cloud)  
+- Hybrid multi-source correlation  
 - Alert prioritization and escalation modelling  
-- Backend JSON log validation and analysis  
 - Detection engineering aligned with MITRE ATT&CK  
 
 ## Endpoint Monitoring
@@ -301,47 +290,43 @@ All investigation reports and detection documentation are included in this repos
 - Windows Security Event Logs  
 - Sysmon telemetry analysis  
 - Process execution behaviour analysis  
-- File Integrity Monitoring (FIM)  
+- File Integrity Monitoring (FIM)
 
 ## Network & Perimeter Monitoring
 
 - Suricata IDS integration  
-- TLS SNI analysis  
 - DNS telemetry analysis  
-- Firewall log analysis (UFW)  
-- Scan detection and port anomaly monitoring  
-- Hybrid perimeter correlation  
+- TLS SNI inspection  
+- Firewall log monitoring (UFW)
 
-## Email Security Investigation
+## Vulnerability Management
 
-- Phishing email analysis  
-- Email header investigation  
-- IOC extraction and enrichment  
-- Threat intelligence validation  
+- Nessus vulnerability scanning
+- Security posture assessment
+- Vulnerability severity analysis
+- CVE and CVSS interpretation
+- Security remediation recommendation analysis
 
 ## Cloud Monitoring
 
-- Cloud identity telemetry ingestion  
-- GitHub activity monitoring as cloud audit source  
-- JSON log pipeline engineering  
-- Identity-based detection modelling  
-- Cloud event baseline development  
-- AzureActivity telemetry monitoring  
+- Cloud identity telemetry ingestion
+- GitHub activity monitoring
+- JSON log pipeline engineering
+- AzureActivity telemetry monitoring
 
 ## Microsoft Security Stack
 
-- Microsoft Sentinel deployment and architecture understanding  
-- KQL query development and threat hunting  
-- Time-window behaviour detections using `bin()`  
-- Multi-source correlation using `join`  
-- Azure control-plane activity monitoring  
-- Microsoft Defender incident investigation workflow  
+- Microsoft Sentinel deployment
+- KQL threat hunting
+- Cross-table correlation detections
+- Microsoft Defender investigation workflow
 
 ## Linux & Infrastructure
 
-- Ubuntu Server (CLI-focused administration)  
-- SSH-based secure management  
-- Service monitoring and log inspection  
+- Ubuntu Server administration
+- SSH security monitoring
+- Linux authentication log analysis
+- Privilege escalation monitoring
 
 ---
 
@@ -349,10 +334,10 @@ All investigation reports and detection documentation are included in this repos
 
 - Documentation-first security workflow  
 - Evidence-driven investigation approach  
-- Structured detection tuning process  
 - Behaviour-based detection modelling  
 - Layered telemetry correlation  
-- Analyst-focused reporting and portfolio building  
+- Structured vulnerability assessment  
+- Analyst-focused reporting and portfolio development  
 
 ---
 
@@ -360,32 +345,35 @@ All investigation reports and detection documentation are included in this repos
 
 - Endpoint Detection Engineering  
 - Hybrid Detection Engineering (Endpoint + IDS)  
-- Firewall Detection Engineering (Perimeter Telemetry Integration)  
+- Firewall Detection Engineering (Perimeter Monitoring)  
 - Hybrid Multi-Layer Correlation (Endpoint + IDS + Firewall)  
-- SOC-Grade Escalation Modelling  
-- Initial Cloud Identity Detection Engineering Integration  
+- SOC Escalation Modelling  
+- Cloud Identity Detection Engineering  
 - Microsoft Sentinel Detection Engineering (KQL + Defender Workflow)  
-- SOC Operational Skills Mini-Labs (Email Investigation, SOAR Exposure, Incident Workflow)
+- SOC Operational Skills Mini-Labs  
+- Linux Security Investigation  
+- Vulnerability Management with Nessus  
 
 ---
 
 # Future Direction
 
-Next expansion phase focuses on strengthening cross-platform investigation and vulnerability awareness.
+Next phases focus on expanding investigation depth and SIEM platform mastery.
 
-## Phase 7 — Linux Investigation & Vulnerability Management
+## Splunk SIEM Mastery
 
-Planned capabilities include:
+Future expansion will include developing detection engineering and investigation capability using **Splunk**, one of the most widely used enterprise SIEM platforms.
 
-- Linux authentication log investigation  
-- SSH brute force detection and analysis  
-- sudo privilege monitoring and suspicious command analysis  
-- Cross-platform investigation using Windows + Linux telemetry  
-- Vulnerability scanning using Nessus Essentials  
-- CVE and CVSS severity interpretation  
-- Vulnerability exposure analysis supporting SOC investigations  
+Planned learning areas include:
 
-This phase will expand the lab from detection engineering into **broader security operations capabilities including vulnerability awareness and Linux security monitoring**.
+- Splunk architecture and data ingestion  
+- SPL query development  
+- Threat hunting using SPL  
+- Detection rule engineering in Splunk  
+- Dashboard creation and SOC monitoring panels  
+- Cross-platform detection logic translation (Wazuh → Sentinel → Splunk)
+
+This phase will strengthen **multi-SIEM expertise**, which is highly valuable in modern SOC environments.
 
 ---
 
