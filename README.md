@@ -1,4 +1,4 @@
-# Muhammad Huraira — SOC Analyst (Hybrid Detection Engineering, Perimeter Monitoring, Cloud Identity Detection, Microsoft SOC Engineering & Vulnerability Management)
+# Muhammad Huraira — SOC Analyst (Hybrid Detection Engineering, Perimeter Monitoring, Cloud Identity Detection, Microsoft SOC Engineering, Vulnerability Management & Splunk SOC Operations)
 
 I build hands-on Security Operations Center (SOC) capability through a structured, documentation-first home lab designed to simulate real-world SOC workflows.
 
@@ -12,9 +12,10 @@ My focus is not just deploying tools — but operating like a SOC analyst and de
 - Translating detection engineering into Microsoft SOC environments  
 - Simulating real SOC analyst operational workflows  
 - Performing vulnerability assessments and security posture analysis  
+- Conducting SIEM investigations using Splunk  
 - Producing portfolio-level security documentation  
 
-This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, expanded into **cloud identity detection engineering**, **Microsoft Sentinel / Defender detection engineering**, **SOC operational investigation workflows**, and **vulnerability management practices**.
+This repository documents the progression from endpoint detection engineering to full **hybrid (endpoint + network + firewall) SOC escalation modelling**, expanded into **cloud identity detection engineering**, **Microsoft Sentinel / Defender detection engineering**, **SOC operational investigation workflows**, **vulnerability management practices**, and **Splunk SOC detection and investigation workflows**.
 
 ---
 
@@ -36,6 +37,7 @@ A production-style SOC environment replicating real monitoring, investigation, p
 - **Cloud identity telemetry ingestion (GitHub activity monitoring)**  
 - **Microsoft Sentinel workspace for Microsoft-native detection engineering**  
 - **Nessus vulnerability scanner integrated for security posture assessment**  
+- **Splunk Enterprise SIEM deployed for investigation and monitoring workflows**  
 - Hybrid endpoint + network + firewall + cloud correlation  
 - CLI-based operational validation and backend JSON log inspection  
 
@@ -100,21 +102,21 @@ The lab now includes early-stage cloud monitoring capability focused on identity
 
 Implemented:
 
-- Custom GitHub telemetry collector script
-- Cloud activity ingestion into Wazuh SIEM
-- JSON-based cloud log parsing
-- Detection engineering for cloud identity events
-- Baseline monitoring for GitHub Push events
-- Cloud identity visibility integrated into SOC workflow
+- Custom GitHub telemetry collector script  
+- Cloud activity ingestion into Wazuh SIEM  
+- JSON-based cloud log parsing  
+- Detection engineering for cloud identity events  
+- Baseline monitoring for GitHub Push events  
+- Cloud identity visibility integrated into SOC workflow  
 
 This represents expansion into **cloud-native SOC monitoring**, where identity events act as primary detection signals.
 
 Focus areas:
 
-- Identity-centric monitoring
-- Cloud activity auditing
-- Behavioural baseline establishment
-- Integration of cloud telemetry into existing SOC escalation logic
+- Identity-centric monitoring  
+- Cloud activity auditing  
+- Behavioural baseline establishment  
+- Integration of cloud telemetry into existing SOC escalation logic  
 
 ---
 
@@ -126,35 +128,35 @@ Capabilities implemented:
 
 ### Sentinel Architecture Deployment
 
-- Log Analytics Workspace deployment
-- Microsoft Sentinel enablement
-- AzureActivity telemetry ingestion
-- Sentinel analytics rule creation
-- Alert generation and validation
+- Log Analytics Workspace deployment  
+- Microsoft Sentinel enablement  
+- AzureActivity telemetry ingestion  
+- Sentinel analytics rule creation  
+- Alert generation and validation  
 
 ### KQL Detection Engineering
 
 Detection and hunting queries developed using:
 
-- `where`
-- `summarize`
-- `count`
-- `bin`
-- `join`
+- `where`  
+- `summarize`  
+- `count`  
+- `bin`  
+- `join`  
 
 Detection logic built for:
 
-- Rare Azure management operations
-- Control-plane anomaly monitoring
-- Behaviour burst detections
-- Suspicious SIEM hunting activity
-- Multi-signal correlation detections
+- Rare Azure management operations  
+- Control-plane anomaly monitoring  
+- Behaviour burst detections  
+- Suspicious SIEM hunting activity  
+- Multi-signal correlation detections  
 
 ### Cross-Source Correlation
 
 Correlation implemented between:
 
-- **LAQueryLogs**
+- **LAQueryLogs**  
 - **AzureActivity**
 
 Using time-window alignment and cross-table joins to model enterprise SOC detections.
@@ -167,7 +169,7 @@ Telemetry ingestion
 → Hunting query  
 → Detection rule creation  
 → Alert generation  
-→ Incident investigation
+→ Incident investigation  
 
 ---
 
@@ -177,19 +179,19 @@ Phase 6 expanded the lab from **detection engineering** into **SOC analyst opera
 
 ## Phishing Email Investigation
 
-- Email header analysis
-- IOC extraction
-- Domain and URL reputation checks
-- Attachment reputation analysis
-- Threat intelligence enrichment
+- Email header analysis  
+- IOC extraction  
+- Domain and URL reputation checks  
+- Attachment reputation analysis  
+- Threat intelligence enrichment  
 
 ## SOAR Automation Exposure
 
 Using the Shuffle platform:
 
-- Alert enrichment workflow design
-- SOC automation pipeline modelling
-- Investigation playbook mapping
+- Alert enrichment workflow design  
+- SOC automation pipeline modelling  
+- Investigation playbook mapping  
 
 ## SOC Incident Investigation Simulation
 
@@ -200,7 +202,7 @@ Alert
 → Investigation  
 → Evidence collection  
 → Escalation decision  
-→ Incident documentation
+→ Incident documentation  
 
 Investigation included credential execution attempts and behaviour timeline reconstruction.
 
@@ -238,24 +240,93 @@ Deployed **Nessus Essentials** to simulate enterprise vulnerability assessment w
 
 Implementation included:
 
-- Nessus scanner deployment on Ubuntu SIEM server
-- Vulnerability plugin initialization
-- Network vulnerability scanning against Windows endpoint
-- Analysis of scan results and vulnerability severity
+- Nessus scanner deployment on Ubuntu SIEM server  
+- Vulnerability plugin initialization  
+- Network vulnerability scanning against Windows endpoint  
+- Analysis of scan results and vulnerability severity  
 
 The vulnerability scan evaluated system exposure using:
 
-- Common Vulnerabilities and Exposures (CVE)
-- Common Vulnerability Scoring System (CVSS)
+- Common Vulnerabilities and Exposures (CVE)  
+- Common Vulnerability Scoring System (CVSS)  
 
 ### Key Findings
 
 Two medium-severity vulnerabilities were identified:
 
-- Untrusted SSL certificate configuration
-- Legacy TLS 1.0 protocol support
+- Untrusted SSL certificate configuration  
+- Legacy TLS 1.0 protocol support  
 
 This phase introduced **proactive vulnerability assessment capabilities** alongside detection engineering.
+
+---
+
+# Splunk SOC Detection & Investigation (Phase 8)
+
+Phase 8 expanded the lab into **Splunk SIEM detection engineering and SOC investigation workflows**, reflecting real-world enterprise SOC tooling.
+
+## Splunk Deployment & Log Ingestion
+
+Splunk Enterprise was deployed on the SIEM server and configured to ingest Linux authentication logs.
+
+Implementation included:
+
+- Splunk Enterprise deployment on Ubuntu SIEM server  
+- Splunk Web interface configuration  
+- File monitoring configuration  
+- Ingestion of `/var/log/auth.log` authentication telemetry  
+- Validation of real-time log ingestion  
+- Generation of SSH authentication failures for telemetry testing  
+
+---
+
+## SPL Detection Engineering
+
+Detection engineering logic was developed using **Splunk Processing Language (SPL)**.
+
+Capabilities implemented:
+
+- Regular expression field extraction using `rex`  
+- Username and source IP parsing  
+- SSH authentication failure analysis  
+- Brute-force detection logic using threshold modelling  
+- Sudo privilege escalation activity monitoring  
+- Privileged command burst detection  
+- Investigation query development for authentication abuse patterns  
+
+---
+
+## Splunk SOC Investigation Workflow
+
+SOC investigation techniques were simulated using Splunk search and pivoting capabilities.
+
+Investigation activities included:
+
+- SSH authentication failure investigation  
+- Attacker source IP profiling  
+- Targeted username analysis  
+- Authentication attack timeline reconstruction  
+- Investigation of privileged sudo command activity  
+- Correlation between authentication failures and privileged actions  
+
+These activities replicate how SOC analysts investigate **authentication abuse and potential compromise scenarios**.
+
+---
+
+## Splunk Security Monitoring Dashboard
+
+A Splunk dashboard was developed to visualize authentication attacks and privileged activity across the environment.
+
+Dashboard panels included:
+
+- Failed SSH login attempts over time  
+- Top attacker source IP addresses  
+- Most targeted usernames  
+- Sudo privilege activity timeline  
+- Total authentication failure volume  
+- Top users executing privileged commands  
+
+These dashboards simulate real SOC monitoring panels used to maintain situational awareness of authentication and privilege activity within monitored systems.
 
 ---
 
@@ -279,6 +350,8 @@ Performed full end-to-end SOC investigations using real telemetry:
 ## SIEM & SOC Operations
 
 - Wazuh SIEM deployment and administration  
+- Splunk Enterprise investigation workflows  
+- SPL detection engineering and search analytics  
 - Microsoft Sentinel architecture and analytics rules  
 - KQL threat hunting and detection engineering  
 - Hybrid multi-source correlation  
@@ -301,32 +374,32 @@ Performed full end-to-end SOC investigations using real telemetry:
 
 ## Vulnerability Management
 
-- Nessus vulnerability scanning
-- Security posture assessment
-- Vulnerability severity analysis
-- CVE and CVSS interpretation
-- Security remediation recommendation analysis
+- Nessus vulnerability scanning  
+- Security posture assessment  
+- Vulnerability severity analysis  
+- CVE and CVSS interpretation  
+- Security remediation recommendation analysis  
 
 ## Cloud Monitoring
 
-- Cloud identity telemetry ingestion
-- GitHub activity monitoring
-- JSON log pipeline engineering
-- AzureActivity telemetry monitoring
+- Cloud identity telemetry ingestion  
+- GitHub activity monitoring  
+- JSON log pipeline engineering  
+- AzureActivity telemetry monitoring  
 
 ## Microsoft Security Stack
 
-- Microsoft Sentinel deployment
-- KQL threat hunting
-- Cross-table correlation detections
-- Microsoft Defender investigation workflow
+- Microsoft Sentinel deployment  
+- KQL threat hunting  
+- Cross-table correlation detections  
+- Microsoft Defender investigation workflow  
 
 ## Linux & Infrastructure
 
-- Ubuntu Server administration
-- SSH security monitoring
-- Linux authentication log analysis
-- Privilege escalation monitoring
+- Ubuntu Server administration  
+- SSH security monitoring  
+- Linux authentication log analysis  
+- Privilege escalation monitoring  
 
 ---
 
@@ -353,27 +426,9 @@ Performed full end-to-end SOC investigations using real telemetry:
 - SOC Operational Skills Mini-Labs  
 - Linux Security Investigation  
 - Vulnerability Management with Nessus  
-
----
-
-# Future Direction
-
-Next phases focus on expanding investigation depth and SIEM platform mastery.
-
-## Splunk SIEM Mastery
-
-Future expansion will include developing detection engineering and investigation capability using **Splunk**, one of the most widely used enterprise SIEM platforms.
-
-Planned learning areas include:
-
-- Splunk architecture and data ingestion  
-- SPL query development  
-- Threat hunting using SPL  
-- Detection rule engineering in Splunk  
-- Dashboard creation and SOC monitoring panels  
-- Cross-platform detection logic translation (Wazuh → Sentinel → Splunk)
-
-This phase will strengthen **multi-SIEM expertise**, which is highly valuable in modern SOC environments.
+- **Splunk SOC Detection Engineering**  
+- **Splunk SOC Investigation Workflows**  
+- **Splunk Security Monitoring Dashboard Development**
 
 ---
 
